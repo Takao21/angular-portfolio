@@ -9,6 +9,17 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminModule } from './admin/admin.module'
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+var config = {
+  apiKey: "AIzaSyDjW2L0STIg50l9J0jQWKR7DSoyne2W-l8",
+  authDomain: "angular-portfolio-f8aeb.firebaseapp.com",
+  databaseURL: "https://angular-portfolio-f8aeb.firebaseio.com",
+  projectId: "angular-portfolio-f8aeb",
+  storageBucket: "angular-portfolio-f8aeb.appspot.com",
+  messagingSenderId: "122740847748",
+};
 
 @NgModule({
   declarations: [
@@ -22,7 +33,9 @@ import { AdminModule } from './admin/admin.module'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

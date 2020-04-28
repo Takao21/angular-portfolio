@@ -6,6 +6,7 @@ import { ProjectCreateComponent } from './project-create/project-create.componen
 import { ProjectUpdateComponent } from './project-update/project-update.component';
 import { ProjectComponent } from './project/project.component';
 import { LoginComponent } from './login/login.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
@@ -14,19 +15,22 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: ProjectListComponent
+        component: ProjectListComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'create',
-        component: ProjectCreateComponent
+        component: ProjectCreateComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'update',
-        component: ProjectUpdateComponent
+        component: ProjectUpdateComponent,
+        canActivate: [AdminGuard]
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
       },
     ]
   }
